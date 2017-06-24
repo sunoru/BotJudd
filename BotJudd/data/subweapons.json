@@ -1,0 +1,80 @@
+{
+    "Disruptor": {
+        "Base Ink Usage": "50%",
+        "Base Duration": "5s (upon contact)",
+        "jp": "\u30dd\u30a4\u30ba\u30f3\u30dc\u30fc\u30eb",
+        "zh": "\u6bd2\u74f6",
+        "en": "Disruptor"
+    },
+    "Point Sensor": {
+        "Base Duration": "8s (upon contact)",
+        "jp": "\u30dd\u30a4\u30f3\u30c8\u30bb\u30f3\u30b5\u30fc",
+        "zh": "\u7d22\u654c",
+        "en": "Point Sensor"
+    },
+    "Splash Wall": {
+        "Base Ink Usage": "60%",
+        "Base Duration": "7s when not damaged",
+        "zh": "\u96e8\u5e18",
+        "jp": "\u30b9\u30d7\u30e9\u30c3\u30b7\u30e5\u30b7\u30fc\u30eb\u30c9",
+        "en": "Splash Wall",
+        "Damage": "50 (per frame)"
+    },
+    "Squid Beakon": {
+        "jp": "\u30b8\u30e3\u30f3\u30d7\u30d3\u30fc\u30b3\u30f3",
+        "zh": "\u8df3\u70b9",
+        "en": "Squid Beakon"
+    },
+    "Burst Bomb": {
+        "Splash Damage": "35",
+        "zh": "\u6c34\u7403",
+        "Min. Splash Damage": "25",
+        "Direct Hit Damage": "60",
+        "jp": "\u30af\u30a4\u30c3\u30af\u30dc\u30e0",
+        "en": "Burst Bomb"
+    },
+    "Splat Bomb": {
+        "Base Ink Usage": "70%",
+        "Base Duration": "Explodes 1s after contact",
+        "zh": "\u4e09\u89d2\u96f7",
+        "Min. Splash Damage": "30",
+        "Direct Hit Damage": "180",
+        "jp": "\u30b9\u30d7\u30e9\u30c3\u30b7\u30e5\u30dc\u30e0",
+        "en": "Splat Bomb"
+    },
+    "Suction Bomb": {
+        "Base Ink Usage": "70%",
+        "Base Duration": "Explodes 2s after deployed",
+        "zh": "\u7c98\u5f39",
+        "Min. Splash Damage": "30",
+        "Direct Hit Damage": "180",
+        "jp": "\u30ad\u30e5\u30fc\u30d0\u30f3\u30dc\u30e0",
+        "en": "Suction Bomb"
+    },
+    "Sprinkler": {
+        "Base Ink Usage": "80%",
+        "Base Duration": "\u221e (until destroyed / user get splatted)",
+        "zh": "\u82b1\u6d12",
+        "jp": "\u30b9\u30d7\u30ea\u30f3\u30af\u30e9\u30fc",
+        "en": "Sprinkler",
+        "Damage": "30"
+    },
+    "Ink Mine": {
+        "Base Duration": null,
+        "zh": "\u5730\u96f7",
+        "Min. Splash Damage": "30",
+        "Direct Hit Damage": "180",
+        "jp": "\u30c8\u30e9\u30c3\u30d7",
+        "en": "Ink Mine"
+    },
+    "Seeker": {
+        "Splash Damage": "80",
+        "Base Duration": null,
+        "zh": "\u5c0f\u8f66",
+        "Min. Splash Damage": "20",
+        "Direct Hit Damage": "180",
+        "Base Ink Usage": "80%",
+        "jp": "\u30c1\u30a7\u30a4\u30b9\u30dc\u30e0",
+        "en": "Seeker"
+    }
+}

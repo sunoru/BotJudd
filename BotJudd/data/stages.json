@@ -1,0 +1,137 @@
+{
+    "Museum d'Alfonsino": {
+        "en": "Museum d'Alfonsino",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30ad\u30f3\u30e1\u30c0\u30a4\u7f8e\u8853\u9928",
+        "zh": "\u7f8e\u672f\u9986"
+    },
+    "Walleye Warehouse": {
+        "en": "Walleye Warehouse",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30cf\u30b3\u30d5\u30b0\u5009\u5eab",
+        "zh": "\u4ed3\u5e93"
+    },
+    "Blackbelly Skatepark": {
+        "en": "Blackbelly Skatepark",
+        "alias": [
+            "B-Park",
+            "B. bass park",
+            "Bass Park"
+        ],
+        "jp": "B\u30d0\u30b9\u30d1\u30fc\u30af",
+        "zh": "\u516c\u56ed"
+    },
+    "Urchin Underpass": {
+        "en": "Urchin Underpass",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30c7\u30ab\u30e9\u30a4\u30f3\u9ad8\u67b6\u4e0b",
+        "zh": "\u9ad8\u67b6\u4e0b"
+    },
+    "Port Mackerel": {
+        "en": "Port Mackerel",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30db\u30c3\u30b1\u3075\u982d",
+        "zh": "\u7801\u5934"
+    },
+    "Bluefin Depot": {
+        "en": "Bluefin Depot",
+        "alias": [
+            "\u78b3\u77ff",
+            "\u7164\u77ff"
+        ],
+        "jp": "\u30cd\u30ae\u30c8\u30ed\u70ad\u9271",
+        "zh": "\u70ad\u77ff"
+    },
+    "Flounder Heights": {
+        "en": "Flounder Heights",
+        "alias": [
+            "\u5c45\u6c11\u533a",
+            "\u72d9\u6c11\u533a",
+            "\u72d9\u6c11\u697c",
+            "\u4e18\u56e2\u5730"
+        ],
+        "jp": "\u30d2\u30e9\u30e1\u304c\u4e18\u56e3\u5730",
+        "zh": "\u5c45\u6c11\u697c"
+    },
+    "Arowana Mall": {
+        "en": "Arowana Mall",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30a2\u30ed\u30ef\u30ca\u30e2\u30fc\u30eb",
+        "zh": "\u5546\u4e1a\u8857"
+    },
+    "Kelp Dome": {
+        "en": "Kelp Dome",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30e2\u30ba\u30af\u8fb2\u5712",
+        "zh": "\u519c\u56ed"
+    },
+    "Moray Towers": {
+        "en": "Moray Towers",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30bf\u30c1\u30a6\u30aa\u30d1\u30fc\u30ad\u30f3\u30b0",
+        "zh": "\u505c\u8f66\u573a"
+    },
+    "Ancho-V Games": {
+        "en": "Ancho-V Games",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30a2\u30f3\u30c1\u30e7\u30d3\u30c3\u30c8\u30b2\u30fc\u30e0\u30ba",
+        "zh": "\u6e38\u620f\u516c\u53f8"
+    },
+    "Mahi-Mahi Resort": {
+        "en": "Mahi-Mahi Resort",
+        "alias": [
+            "\u6e38\u6cf3\u6c60",
+            "Mahi-Mahi"
+        ],
+        "jp": "\u30de\u30d2\u30de\u30d2\u30ea\u30be\u30fc\u30c8\uff06\u30b9\u30d1",
+        "zh": "\u6cf3\u6c60"
+    },
+    "Saltspray Rig": {
+        "en": "Saltspray Rig",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30b7\u30aa\u30ce\u30e1\u6cb9\u7530",
+        "zh": "\u6cb9\u7530"
+    },
+    "Camp Triggerfish": {
+        "en": "Camp Triggerfish",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30e2\u30f3\u30ac\u30e9\u30ad\u30e3\u30f3\u30d7\u5834",
+        "zh": "\u8425\u5730"
+    },
+    "Piranha Pit": {
+        "en": "Piranha Pit",
+        "alias": [
+            ""
+        ],
+        "jp": "\u30b7\u30e7\u30c3\u30c4\u30eb\u9271\u5c71",
+        "zh": "\u77ff\u5c71"
+    },
+    "Hammerhead Bridge": {
+        "en": "Hammerhead Bridge",
+        "alias": [
+            "\u5927\u6865"
+        ],
+        "jp": "\u30de\u30b5\u30d0\u6d77\u5ce1\u5927\u6a4b",
+        "zh": "\u6d77\u5ce1\u5927\u6865"
+    }
+}

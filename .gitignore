@@ -1,5 +1,6 @@
 build/
 *.pyc
 __pycache__/
-/data/secret_keys.txt
+secret_keys.txt
 /log/
+/env/

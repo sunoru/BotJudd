@@ -1,0 +1,58 @@
+{
+    "Kraken": {
+        "Points to Fill (p)": "200",
+        "en": "Kraken",
+        "Sets": "15",
+        "Base Duration": "5s",
+        "jp": "\u30c0\u30a4\u30aa\u30a6\u30a4\u30ab",
+        "Damage": "160"
+    },
+    "Killer Wail": {
+        "Points to Fill (p)": "160",
+        "en": "Killer Wail",
+        "Sets": "14",
+        "Brand": "Custom",
+        "Base Duration": "10s (aiming)\n2s (active)",
+        "jp": "\u30e1\u30ac\u30db\u30f3\u30ec\u30fc\u30b6\u30fc",
+        "Damage": "10 (per frame)"
+    },
+    "Bubbler": {
+        "Points to Fill (p)": "180",
+        "Base Duration": "4.5s",
+        "en": "Bubbler",
+        "jp": "\u30d0\u30ea\u30a2",
+        "Sets": "9"
+    },
+    "Echolocator": {
+        "Points to Fill (p)": "200",
+        "Base Duration": "9s",
+        "en": "Echolocator",
+        "jp": "\u30b9\u30fc\u30d1\u30fc\u30bb\u30f3\u30b5\u30fc",
+        "Sets": "13"
+    },
+    "Inkstrike": {
+        "Points to Fill (p)": "180",
+        "en": "Inkstrike",
+        "Sets": "12",
+        "Brand": "\"Splat\"",
+        "Base Duration": "10s (aiming)\n1.5s (active)",
+        "jp": "\u30c8\u30eb\u30cd\u30fc\u30c9",
+        "Damage": "2.5-10 (per frame)"
+    },
+    "Bomb Rush": {
+        "Points to Fill (p)": "180",
+        "Base Duration": "6s",
+        "en": "Bomb Rush",
+        "jp": "\u30dc\u30e0\u30e9\u30c3\u30b7\u30e5",
+        "Sets": "12"
+    },
+    "Inkzooka": {
+        "Points to Fill (p)": "220",
+        "en": "Inkzooka",
+        "Sets": "16",
+        "Brand": "\"Splat\"",
+        "Base Duration": "total: 6.5s\ndeployment: 0.92s\nfiring: 5.58s",
+        "jp": "\u30b9\u30fc\u30d1\u30fc\u30b7\u30e7\u30c3\u30c8",
+        "Damage": "150"
+    }
+}

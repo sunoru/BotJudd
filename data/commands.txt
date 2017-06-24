@@ -1,0 +1,7 @@
+currentturfstages - Show the current turf stages.
+currentrankedstages - Show the current ranked stages and modes.
+currentstages - Show the current stages and modes.
+todaystages - Show the stages and modes of today.
+sometimestages - Show the stages and modes after sometime.
+randomstages - Generate some random stages and modes.
+randomweapons - Generate some random weapons.
