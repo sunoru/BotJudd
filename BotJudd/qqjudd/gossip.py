@@ -17,6 +17,8 @@ class Gossip(BaseAction):
             self.message = '喵' * random.randint(1, 5)
         elif self.command == 'who':
             self.message = '我是猫裁判！'
+        elif self.command == 'catfilm':
+            self.message = '不存在的。'
         self.sendMessage(self.message)
         return None
 
@@ -26,6 +28,8 @@ class Gossip(BaseAction):
             return cls('wow', bot, contact, member, lang)
         if content == '你是谁':
             return cls('who', bot, contact, member, lang)
+        if content == '求猫片' or content == '我要看猫片':
+            return cls('catfilm', bot, contact, member, lang)
         q = re.match(r'^拉稀(.*)$', content)
         if q:
             args = (q.groups()[0],)

@@ -43,7 +43,7 @@ class PrivateRoom(BaseAction):
         if contact.uin != self.contact.uin or member.uin != self.member.uin:
             return None
         alive = None
-        if content == '结束私房':
+        if re.search(r'结束私房|不玩了', content):
             self.messages = ['OK，私房结束']
             alive = False
         elif self.status == 1:
