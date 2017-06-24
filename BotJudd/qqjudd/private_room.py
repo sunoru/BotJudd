@@ -23,6 +23,7 @@ class PrivateRoom(BaseAction):
             alive = True
             self.people = self.args[0]
             self.amiibo, self.scroll = self.args[1], self.args[2]
+            self.weapons = self.stage = None
             if len(self.people) == 0:
                 self.messages = ['有哪些人呢？（用英文逗号隔开）']
                 self.status = 1
@@ -49,7 +50,7 @@ class PrivateRoom(BaseAction):
             if content:
                 self.people = content.split(',')
                 self.status = 0
-                self.messages = ['现在私房成员：', '，'.join(self.people)]
+                self.show_people()
             else:
                 self.messages = ['加人进私房呀']
             alive = True
@@ -58,10 +59,16 @@ class PrivateRoom(BaseAction):
                 if each:
                     self.people.append(each)
             self.status = 0
-            self.messages = ['现在私房成员：', '，'.join(self.people)]
+            self.show_people()
             alive = True
-        elif content == '刷新武器':
+        elif re.search(r'^刷新(武器|地图|武器地图|地图武器)$', content):
+            self.lang = lang
             self.generate_random_weapons()
+            self.show_weapon_stage()
+            alive = True
+        elif re.search(r'^显示(武器|地图|武器地图|地图武器)$', content):
+            self.lang = lang
+            self.show_weapon_stage()
             alive = True
         if alive is None:
             q = re.match('^把(.+)换成(.+)$', content)
@@ -87,7 +94,9 @@ class PrivateRoom(BaseAction):
             q = re.match('^(.+)进入私房$', content)
             if q:
                 people = q.groups()[0].split(',')
-                self.people.append(person)
+                for person in people:
+                    self.people.append(person)
+                self.show_people()
                 alive = True
         if alive is None:
             return None
@@ -104,7 +113,16 @@ class PrivateRoom(BaseAction):
 
     def generate_random_weapons(self):
         self.weapons = splatoon.get_random_weapons(self.scroll, self.amiibo, len(self.people), self.lang)
+        self.stage = splatoon.get_random_stages(True, 1, self.lang)[0]
+
+    def show_weapon_stage(self):
+        if not self.weapons or not self.stage:
+            self.generate_random_weapons()
         self.messages = ['%s：%s' % (person, weapon) for person, weapon in zip(self.people, self.weapons)]
+        self.messages.insert(0, '%s：%s' % (self.stage['mode'], self.stage['map']))
+
+    def show_people(self):
+        self.messages = ['现在私房成员：', '，'.join(self.people)]
 
     @staticmethod
     def check_handle_random(content):
