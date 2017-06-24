@@ -4,3 +4,4 @@ __pycache__/
 secret_keys.txt
 /log/
 /env/
+*.swp
