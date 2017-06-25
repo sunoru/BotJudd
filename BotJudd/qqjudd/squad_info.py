@@ -59,6 +59,7 @@ class SquadInfo(BaseAction):
                 self.message = ''
             else:
                 self.message = '把你记下来了\n'
+                self.people.append((member, datetime.datetime.now()))
             self.message += self.show_people()
         elif re.search(r'^(/cancelsquad|我?不求?[组排]排*了)$', content):
             if asked >= 0:
