@@ -33,7 +33,7 @@ def _get_gossip_list():
 
 def _check_gossip(content, **kwargs):
     content = strip(content)
-    for each in Gossip.gossip_list:
+    for each in reversed(Gossip.gossip_list):
         t = each[0].search(content)
         if t:
             return each
