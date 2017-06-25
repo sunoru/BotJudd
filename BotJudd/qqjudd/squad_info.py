@@ -17,7 +17,7 @@ class SquadInfo(BaseAction):
         我也要排
     '''
     command_list = BaseAction.make_commands([
-        [r'^(/asksquad|((现在)|([待一]会儿?))?有(没有)?[谁人]?要?[组排]排*吗?|我?也?要?组?排+)$', 'asksquad', _ask_squad()]
+        [r'^(/asksquad|((现在)|([待一]会儿?))?有(没有)?[谁人]?要?[组排]排*吗?|我?也?要?求?组?排+)$', 'asksquad', _ask_squad()]
     ])
 
     def __init__(self, command, bot, contact, member, content, lang, args):
@@ -71,7 +71,7 @@ class SquadInfo(BaseAction):
                 self.message = '你本来也没说要排呀'
         elif re.search(r'^我和(.+?)去?[组排]排*了$', content):
             names_raw = re.match(r'^我和(?P<names>.+?)去?[组排]排*了$', content).groupdict()['names']
-            names = filter(lambda x: x, names_raw.split('@'))
+            names = filter(lambda x: x, map(lambda x: x.strip(), names_raw.split('@')))
             indices = set(filter(lambda x: x >= 0, map(self.find_member, names)))
             if asked < 0 and len(indices) == 0:
                 self.message = '哦'
@@ -81,7 +81,6 @@ class SquadInfo(BaseAction):
                 indices = sorted(indices, reverse=True)
                 for index in indices:
                     self.people.pop(index)
-                print(self.people)
                 self.message = '好，把你们从等待组排列表里删去了'
                 if not self.people:
                     alive = False
