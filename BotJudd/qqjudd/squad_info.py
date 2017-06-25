@@ -60,7 +60,7 @@ class SquadInfo(BaseAction):
             else:
                 self.message = '把你记下来了\n'
             self.message += self.show_people()
-        elif re.search(r'^(/cancelsquad|我?不求?排了)$', content):
+        elif re.search(r'^(/cancelsquad|我?不求?[组排]排*了)$', content):
             if asked >= 0:
                 self.people.pop(asked)
                 self.message = '好，把你从等待组排列表里删去了'
