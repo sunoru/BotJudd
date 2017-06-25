@@ -6,3 +6,4 @@ log/
 /env/
 *.swp
 /BotJudd/qqjudd/settings.py
+/BotJudd/data/gossip_list.txt

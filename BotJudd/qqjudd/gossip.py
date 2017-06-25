@@ -43,7 +43,7 @@ def _check_gossip(content, **kwargs):
 def _gossip():
     def update_message(self):
         tosub = random.sample(self.args[1], 1)[0]
-    	content = strip(self.content)
+        content = strip(self.content)
         self.message = self.args[0].sub(tosub, content)
         if content == self.message:
             self.message = tosub
