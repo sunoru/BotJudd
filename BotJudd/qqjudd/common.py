@@ -7,18 +7,14 @@ from .utils import parse_number
 
 def _random_int():
     def update_message(self):
-        try:
-            n = self.args.get('n')
-            if n is None:
-                n = 1
-            m = self.args.get('m')
-            if m is None:
-                m = 6
-            n, m = map(parse_number, (n, m))
-        except ValueError:
-            self.messages = ['喵喵喵？']
-            return
-        if n * math.log10(m) > 100:
+        n = self.args.get('n')
+        if not n:
+            n = 1
+        m = self.args.get('m')
+        if not m:
+            m = 6
+        n, m = map(parse_number, (n, m))
+        if not n or not m or n < 0 or m < 0 or n * math.log10(m) > 100:
             self.messages = ['喵喵喵？']
             return
         numbers = [str(random.randint(1, m)) for i in range(n)]
