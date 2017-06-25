@@ -77,7 +77,7 @@ def _current_stages(method):
 
 def _today_stages():
     def update_message(self):
-        stages = method(lang=self.lang, **kwargs)
+        stages = splatoon.get_cached_stages(True, self.lang)
         self.messages = [
             '\n'.join([' - '.join(p[x].strftime('%Y/%m/%d %H:%M') for x in ['startTime', 'endTime']),
                 _get_message(p['stages'][0]), _get_message(p['stages'][1])])
