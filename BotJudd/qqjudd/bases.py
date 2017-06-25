@@ -19,8 +19,6 @@ class BaseAction():
 
     @classmethod
     def check_handle_message(cls, bot, contact, member, content):
-        if contact.qq not in settings.ALLOWED_GROUPS or member is None or member.uin == bot.conf.qq:
-            return None, None
         p = content.find(' ')
         if p < 0:
             return None, None

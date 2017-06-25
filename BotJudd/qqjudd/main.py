@@ -1,14 +1,16 @@
 from .bases import BaseAction
+from .common import CommonAction
 from .stage_info import StageInfo
 from .weapon_info import WeaponInfo
 from .private_room import PrivateRoom
 from .gossip import Gossip
 from .squad_info import SquadInfo
+from .log_watcher import LogWatcher
 from .admin import AdminAction
 from .utils import settings
 
 actions = [
-    StageInfo, WeaponInfo, PrivateRoom, SquadInfo, Gossip
+    CommonAction, StageInfo, WeaponInfo, PrivateRoom, SquadInfo, Gossip
 ]
 
 sessions = set()
@@ -29,6 +31,9 @@ def onQQMessage(bot, contact, member, content):
     if contact.qq in settings.ADMIN_QQ:
         admin.handle(bot, contact, member, content)
         return
+    if contact.qq not in settings.ALLOWED_GROUPS or member is None or member.uin == bot.conf.qq:
+        return None
+    LogWatcher.process(bot, contact, member, content)
     content, lang = BaseAction.check_handle_message(bot, contact, member, content)
     if content is None:
         return
