@@ -3,16 +3,27 @@ from .stage_info import StageInfo
 from .weapon_info import WeaponInfo
 from .private_room import PrivateRoom
 from .gossip import Gossip
+from .squad_info import SquadInfo
+from .admin import AdminAction
+from .utils import settings
 
 actions = {
-    StageInfo, WeaponInfo, PrivateRoom, Gossip
+    StageInfo, WeaponInfo, PrivateRoom, SquadInfo, Gossip
 }
 
 sessions = set()
 
+admin = AdminAction(sessions)
+
+def onInit(bot):
+    admin.bot = bot
+
 def onQQMessage(bot, contact, member, content):
     p = None
-    content, lang = BaseAction.check_handle(bot, contact, member, content)
+    if contact.qq in settings.ADMIN_QQ:
+        admin.handle(bot, contact, member, content)
+        return
+    content, lang = BaseAction.check_handle_message(bot, contact, member, content)
     if content is None:
         return
     handled = False

@@ -4,6 +4,64 @@ from .bases import BaseAction
 from .utils import strip
 
 
+def _check_handle_random(content, **kwargs):
+    amiibo = False
+    scroll = True
+    if content.startswith('/randomprivateroom'):
+        p = strip(content[18:])
+        if not p:
+            return [], amiibo, scroll
+        p = p.split()
+        for i in range(1, len(p)):
+            if p[i] == 'amiibo':
+                amiibo = True
+            elif p[i] == 'noscroll':
+                scroll = False
+            else:
+                return None
+        return p[0].split(','), amiibo, scroll
+    content = strip(content)
+    if re.search(r'带\s*Amiibo', content, flags=re.IGNORECASE):
+        amiibo = True
+        content = re.sub(r'带\s*Amiibo', '', content, flags=re.IGNORECASE)
+        content = strip(content)
+    if content.find('不带剧情武器') >= 0:
+        scroll = False
+        content = strip(content.replace('不带剧情武器', ''))
+    if content.find('开始随机私房') >= 0:
+        content = strip(content.replace('开始随机私房', ''))
+    else:
+        return None
+    if content:
+        people = content.split(',')
+    else:
+        people = []
+    return people, amiibo, scroll
+
+
+def _random_pr():
+    def handle(self):
+        alive = True
+        self.people = self.args[0]
+        self.amiibo, self.scroll = self.args[1], self.args[2]
+        self.weapons = self.stage = None
+        if len(self.people) == 0:
+            self.messages = ['有哪些人呢？（用英文逗号隔开）']
+            self.status = 1
+        elif len(self.people) == 1:
+            self.messages = ['一个人无法开始私房呢，还需要加入哪些人呢？（用英文逗号隔开）']
+            self.status = 2
+        elif len(self.people) > 8:
+            self.messages = ['人太多了，重新开房去']
+            alive = False
+        else:
+            self.status = 0
+            self.generate_random_weapons()
+        self.sendMessage('\n'.join(self.messages))
+        return self if alive else None
+    return handle
+
+
 class PrivateRoom(BaseAction):
     help_info = '''
         私房相关：
@@ -11,33 +69,16 @@ class PrivateRoom(BaseAction):
             刷新武器
     '''
 
-    def __init__(self, command, bot, contact, member, lang, **kwargs):
-        super().__init__(bot, contact, member, lang)
-        self.command = command
-        self.args = kwargs['args']
+    command_list = BaseAction.make_commands([
+        [_check_handle_random, 'randompr', _random_pr()],
+    ])
+
+    def __init__(self, command, bot, contact, member, content, lang, args):
+        super().__init__(command, bot, contact, member, content, lang, args)
         self.status = 0
 
     def handle(self):
-        alive = False
-        if self.command == 'randompr':
-            alive = True
-            self.people = self.args[0]
-            self.amiibo, self.scroll = self.args[1], self.args[2]
-            self.weapons = self.stage = None
-            if len(self.people) == 0:
-                self.messages = ['有哪些人呢？（用英文逗号隔开）']
-                self.status = 1
-            elif len(self.people) == 1:
-                self.messages = ['一个人无法开始私房呢，还需要加入哪些人呢？（用英文逗号隔开）']
-                self.status = 2
-            elif len(self.people) > 8:
-                self.messages = ['人太多了，重新开房去']
-                alive = False
-            else:
-                self.status = 0
-                self.generate_random_weapons()
-        self.sendMessage('\n'.join(self.messages))
-        return self if alive else None
+        return super().handle()
 
     def handle_next(self, bot, contact, member, content, lang):
         if contact.uin != self.contact.uin or member.uin != self.member.uin:
@@ -123,45 +164,3 @@ class PrivateRoom(BaseAction):
 
     def show_people(self):
         self.messages = ['现在私房成员：', '，'.join(self.people)]
-
-    @staticmethod
-    def check_handle_random(content):
-        amiibo = False
-        scroll = True
-        if content.startswith('/randomprivateroom'):
-            p = strip(content[18:])
-            if not p:
-                return [], amiibo, scroll
-            p = p.split()
-            for i in range(1, len(p)):
-                if p[i] == 'amiibo':
-                    amiibo = True
-                elif p[i] == 'noscroll':
-                    scroll = False
-                else:
-                    return None
-            return p[0].split(','), amiibo, scroll
-        content = strip(content)
-        if re.search(r'带\s*Amiibo', content, flags=re.IGNORECASE):
-            amiibo = True
-            content = re.sub(r'带\s*Amiibo', '', content, flags=re.IGNORECASE)
-            content = strip(content)
-        if content.find('不带剧情武器') >= 0:
-            scroll = False
-            content = strip(content.replace('不带剧情武器', ''))
-        if content.find('开始随机私房') >= 0:
-            content = strip(content.replace('开始随机私房', ''))
-        else:
-            return None
-        if content:
-            people = content.split(',')
-        else:
-            people = []
-        return people, amiibo, scroll
-
-    @classmethod
-    def check_handle(cls, bot, contact, member, content, lang):
-        t = PrivateRoom.check_handle_random(content)
-        if t is not None:
-            return cls('randompr', bot, contact, member, lang, args=t)
-        return None

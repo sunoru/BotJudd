@@ -5,3 +5,4 @@ secret_keys.txt
 /log/
 /env/
 *.swp
+/BotJudd/qqjudd/settings.py
