@@ -79,8 +79,8 @@ def _add_gossip():
 class Gossip(BaseAction):
     gossip_list = _get_gossip_list()
     command_list = BaseAction.make_commands([
-        [_check_gossip, 'gossip', _gossip()],
         [_check_add_gossip, 'addgossip', _add_gossip()],
+        [_check_gossip, 'gossip', _gossip()],
     ])
 
     @staticmethod

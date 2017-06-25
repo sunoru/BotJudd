@@ -7,9 +7,9 @@ from .squad_info import SquadInfo
 from .admin import AdminAction
 from .utils import settings
 
-actions = {
+actions = [
     StageInfo, WeaponInfo, PrivateRoom, SquadInfo, Gossip
-}
+]
 
 sessions = set()
 
