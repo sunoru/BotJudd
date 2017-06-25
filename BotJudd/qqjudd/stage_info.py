@@ -45,6 +45,8 @@ def _check_handle_random(content, **kwargs):
         except ValueError:
             return None
     content = content.strip()
+    if content == '随机地图':
+        return 1
     q = re.match(r'^随机(.*)张图$', content)
     if not q:
         q = re.match(r'^随机地图(.+)张$', content)

@@ -52,7 +52,7 @@ class SquadInfo(BaseAction):
             return None
         asked = self.find_member(member)
         alive = True
-        if re.search(r'^(/showsquad|显示([求等]?[组排(组排)]|等待组排)列表)$', content):
+        if re.search(r'^(/showsquad|显示([求等]?[组排]排*]|等待组排)列表)$', content):
             self.message = self.show_people()
         elif SquadInfo.command_list[0][0](content) is not None:
             if asked >= 0:
