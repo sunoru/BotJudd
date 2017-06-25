@@ -52,7 +52,7 @@ class SquadInfo(BaseAction):
             return None
         asked = self.find_member(member)
         alive = True
-        if re.search(r'^(/showsquad|显示([求等]?[组排]排*]|等待组排)列表)$', content):
+        if re.search(r'^(/showsquad|显示([求等]?[组排]排*|等待组排)列表)$', content):
             self.message = self.show_people()
         elif SquadInfo.command_list[0][0](content) is not None:
             if asked >= 0:
@@ -69,8 +69,8 @@ class SquadInfo(BaseAction):
                     alive = False
             else:
                 self.message = '你本来也没说要排呀'
-        elif re.search(r'^我和(.+)去?[组排]排*了$', content):
-            names_raw = re.match(r'^我和(?P<names>.+)去?[组排]排*了$', content).groupdict()['names']
+        elif re.search(r'^我和(.+?)去?[组排]排*了$', content):
+            names_raw = re.match(r'^我和(?P<names>.+?)去?[组排]排*了$', content).groupdict()['names']
             names = filter(lambda x: x, names_raw.split('@'))
             indices = set(filter(lambda x: x >= 0, map(self.find_member, names)))
             if asked < 0 and len(indices) == 0:
@@ -81,10 +81,12 @@ class SquadInfo(BaseAction):
                 indices = sorted(indices, reverse=True)
                 for index in indices:
                     self.people.pop(index)
+                print(self.people)
                 self.message = '好，把你们从等待组排列表里删去了'
                 if not self.people:
                     alive = False
         else:
             return None
+        self.member = member
         self.sendMessage(self.message)
         return alive
