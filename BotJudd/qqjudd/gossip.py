@@ -43,12 +43,11 @@ def _check_gossip(content, **kwargs):
 def _gossip():
     def update_message(self):
         tosub = random.sample(self.args[1], 1)[0]
-        self.message = self.args[0].sub(tosub, self.content)
+        self.message = self.args[0].sub(self.content, tosub)
     return update_message
 
 
 def _check_add_gossip(content, **kwargs):
-    print(content)
     raw = None
     if content.startswith('/add_gossip '):
         raw = content[12:].strip()
@@ -61,7 +60,8 @@ def _check_add_gossip(content, **kwargs):
     i2 = raw.find('$')
     if i1 < 0 or i2 < 0 or i2 == len(raw) - 1:
         return None
-    return raw[i1:i2+1], raw[i2+1:].strip()
+    pattern = '^' + strip(raw[i1+1:i2]) + '$'
+    return pattern, raw[i2+1:].strip()
 
 
 def _add_gossip():
