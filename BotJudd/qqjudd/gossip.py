@@ -2,7 +2,7 @@ import json
 import random
 import re
 from .bases import BaseAction
-from .utils import loadfile
+from .utils import loadfile, strip
 
 
 def _gossip_list_append(gossip_list, pattern_raw, results):
