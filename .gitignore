@@ -2,7 +2,7 @@ build/
 *.pyc
 __pycache__/
 secret_keys.txt
-/log/
+log/
 /env/
 *.swp
 /BotJudd/qqjudd/settings.py

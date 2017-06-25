@@ -1,1 +1,1 @@
-from .main import onQQMessage
+from .main import onQQMessage, onInit, onExit

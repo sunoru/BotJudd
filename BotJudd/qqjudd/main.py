@@ -15,8 +15,14 @@ sessions = set()
 
 admin = AdminAction(sessions)
 
+
 def onInit(bot):
     admin.bot = bot
+
+
+def onExit(bot, code, reason, error):
+    Gossip.save_gossip_list()
+
 
 def onQQMessage(bot, contact, member, content):
     p = None

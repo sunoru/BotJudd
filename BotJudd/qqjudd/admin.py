@@ -18,6 +18,8 @@ class AdminAction():
             message = eval(expr)
             if message is None:
                 message = '空返回'
+            else:
+                message = str(message)
         else:
             message = '?'
         bot.SendTo(contact, message)

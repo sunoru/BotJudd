@@ -45,6 +45,10 @@ def loadfile(filename):
         x = fi.read()
     return x
 
+def savefile(filename, content):
+    with open(os.path.join(BASE_DIR, filename), 'w') as fo:
+        fo.write(content)
+
 def update_settings():
     setting_scripts = loadfile('settings.py')
     exec(setting_scripts)

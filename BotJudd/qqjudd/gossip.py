@@ -1,8 +1,9 @@
+import datetime
 import json
 import random
 import re
 from .bases import BaseAction
-from .utils import loadfile, strip
+from .utils import loadfile, strip, savefile
 
 
 def _gossip_list_append(gossip_list, pattern_raw, results):
@@ -93,3 +94,13 @@ class Gossip(BaseAction):
         t = super().handle()
         self.sendMessage(self.message)
         return t
+
+    @staticmethod
+    def save_gossip_list():
+        filename = '../log/%d.txt' % datetime.datetime.now().timestamp()
+        glist = []
+        for each in Gossip.gossip_list:
+            glist.append(each[0].pattern)
+            glist.extend(each[1])
+        savefile(filename, '\n'.join(glist))
+
