@@ -17,7 +17,7 @@ class SquadInfo(BaseAction):
         我也要排
     '''
     command_list = BaseAction.make_commands([
-        [r'^(/asksquad|((现在)|(待?一?会儿?))有(没有)?[谁人]?要?组?排+吗?|我?也?要?组?排)$', 'asksquad', _ask_squad()]
+        [r'^(/asksquad|((现在)|(待?一?会儿?))有(没有)?[谁人]?要?[组排]排*吗?|我?也?要?组?排+)$', 'asksquad', _ask_squad()]
     ])
 
     def __init__(self, command, bot, contact, member, content, lang, args):
